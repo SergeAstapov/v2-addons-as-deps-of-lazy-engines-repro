@@ -49,12 +49,14 @@ define("test-lazy-engine/templates/application", ["exports", "@ember/template-fa
   /*
     Hi from lazy loaded engine.
   
+  <DummyComponent />
+  
   {{outlet}}
   
   */
   {
-    "id": "oJ85Fw5v",
-    "block": "[[[1,\"Hi from lazy loaded engine.\\n\\n\"],[46,[28,[37,1],null,null],null,null,null],[1,\"\\n\"]],[],false,[\"component\",\"-outlet\"]]",
+    "id": "TE5eUHHK",
+    "block": "[[[1,\"Hi from lazy loaded engine.\\n\\n\"],[8,[39,0],null,null,null],[1,\"\\n\\n\"],[46,[28,[37,2],null,null],null,null,null],[1,\"\\n\"]],[],false,[\"dummy-component\",\"component\",\"-outlet\"]]",
     "moduleName": "test-lazy-engine/templates/application.hbs",
     "isStrictMode": false
   });
