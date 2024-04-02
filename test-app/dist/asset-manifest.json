@@ -1,0 +1,12 @@
+{
+  "bundles": {
+    "test-lazy-engine": {
+      "assets": [
+        {
+          "uri": "/engines-dist/test-lazy-engine/assets/engine.js",
+          "type": "js"
+        }
+      ]
+    }
+  }
+}

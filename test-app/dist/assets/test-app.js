@@ -38,6 +38,46 @@
   });
   0; //eaimeta@70e063a35619d71f0,"@glimmer/component/-private/ember-component-manager"eaimeta@70e063a35619d71f
 });
+;define("test-app/components/link-to-external", ["exports", "ember-engines/components/link-to-external"], function (_exports, _linkToExternal) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  Object.defineProperty(_exports, "default", {
+    enumerable: true,
+    get: function () {
+      return _linkToExternal.default;
+    }
+  });
+  0; //eaimeta@70e063a35619d71f0,"ember-engines/components/link-to-external"eaimeta@70e063a35619d71f
+});
+;define("test-app/config/asset-manifest", ["exports", "require", "test-app/config/environment"], function (_exports, _require, _environment) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  _exports.default = void 0;
+  0; //eaimeta@70e063a35619d71f0,"require",0,"test-app/config/environment"eaimeta@70e063a35619d71f
+  const modulePrefix = _environment.default.modulePrefix;
+  const metaName = `${modulePrefix}/config/asset-manifest`;
+  const nodeName = `${modulePrefix}/config/node-asset-manifest`;
+  let config = {};
+  try {
+    // If we have a Node version of the asset manifest, use that for FastBoot and
+    // similar environments.
+    if (_require.default.has(nodeName)) {
+      config = (0, _require.default)(nodeName).default; // eslint-disable-line
+    } else {
+      const rawConfig = document.querySelector('meta[name="' + metaName + '"]').getAttribute('content');
+      config = JSON.parse(unescape(rawConfig));
+    }
+  } catch (err) {
+    throw new Error('Failed to load asset manifest. For browser environments, verify the meta tag with name "' + metaName + '" is present. For non-browser environments, verify that you included the node-asset-manifest module.');
+  }
+  var _default = _exports.default = config;
+});
 ;define("test-app/container-debug-adapter", ["exports", "ember-resolver/container-debug-adapter"], function (_exports, _containerDebugAdapter) {
   "use strict";
 
@@ -51,6 +91,47 @@
     }
   });
   0; //eaimeta@70e063a35619d71f0,"ember-resolver/container-debug-adapter"eaimeta@70e063a35619d71f
+});
+;define("test-app/initializers/engines", ["exports", "ember-engines/initializers/engines"], function (_exports, _engines) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  Object.defineProperty(_exports, "default", {
+    enumerable: true,
+    get: function () {
+      return _engines.default;
+    }
+  });
+  Object.defineProperty(_exports, "initialize", {
+    enumerable: true,
+    get: function () {
+      return _engines.initialize;
+    }
+  });
+  0; //eaimeta@70e063a35619d71f0,"ember-engines/initializers/engines"eaimeta@70e063a35619d71f
+});
+;define("test-app/instance-initializers/load-asset-manifest", ["exports", "test-app/config/asset-manifest"], function (_exports, _assetManifest) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  _exports.default = void 0;
+  _exports.initialize = initialize;
+  0; //eaimeta@70e063a35619d71f0,"test-app/config/asset-manifest"eaimeta@70e063a35619d71f
+  /**
+   * Initializes the AssetLoader service with a generated asset-manifest.
+   */
+  function initialize(instance) {
+    const service = instance.lookup('service:asset-loader');
+    service.pushManifest(_assetManifest.default);
+  }
+  var _default = _exports.default = {
+    name: 'load-asset-manifest',
+    initialize
+  };
 });
 ;define("test-app/router", ["exports", "@ember/routing/router", "test-app/config/environment"], function (_exports, _router, _environment) {
   "use strict";
@@ -71,7 +152,23 @@
     }
   }
   _exports.default = Router;
-  Router.map(function () {});
+  Router.map(function () {
+    this.mount('test-lazy-engine');
+  });
+});
+;define("test-app/services/asset-loader", ["exports", "ember-asset-loader/services/asset-loader"], function (_exports, _assetLoader) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  Object.defineProperty(_exports, "default", {
+    enumerable: true,
+    get: function () {
+      return _assetLoader.default;
+    }
+  });
+  0; //eaimeta@70e063a35619d71f0,"ember-asset-loader/services/asset-loader"eaimeta@70e063a35619d71f
 });
 ;define("test-app/templates/application", ["exports", "@ember/template-factory"], function (_exports, _templateFactory) {
   "use strict";
