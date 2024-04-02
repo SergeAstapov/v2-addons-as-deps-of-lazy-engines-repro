@@ -1,4 +1,9 @@
 {
     "name": "v2-addons-as-deps-of-lazy-engines-repro",
-    "private": true
+    "private": true,
+    "pnpm": {
+        "patchedDependencies": {
+            "@embroider/addon-dev@4.2.1": "patches/@embroider__addon-dev@4.2.1.patch"
+        }
+    }
 }

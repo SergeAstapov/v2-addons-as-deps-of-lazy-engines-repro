@@ -1,0 +1,15 @@
+diff --git a/src/rollup-app-reexports.js b/src/rollup-app-reexports.js
+index 1d78bd5aca456fa31f48bdf20c4180f795c66e65..2dbb92af256d1ea19d882687d7f447eec856263f 100644
+--- a/src/rollup-app-reexports.js
++++ b/src/rollup-app-reexports.js
+@@ -26,7 +26,9 @@ function appReexports(opts) {
+                     this.emitFile({
+                         type: 'asset',
+                         fileName: `_app_/${appFilename}`,
+-                        source: `export ${computedExports} from "${pkg.name}/${addonFilename.slice(0, -(0, path_1.extname)(addonFilename).length)}";\n`,
++                        source:
++                          `import thing from "${pkg.name}/${addonFilename.slice(0, -(0, path_1.extname)(addonFilename).length)}";\n` +
++                          `export default thing;\n`,
+                     });
+                 }
+             }

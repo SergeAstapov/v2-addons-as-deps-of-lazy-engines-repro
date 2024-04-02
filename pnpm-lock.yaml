@@ -4,6 +4,11 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+patchedDependencies:
+  '@embroider/addon-dev@4.2.1':
+    hash: lbilpvhajy3dr3zio4cbbjqw5y
+    path: patches/@embroider__addon-dev@4.2.1.patch
+
 importers:
 
   .: {}
@@ -293,7 +298,7 @@ importers:
         version: 7.24.1
       '@embroider/addon-dev':
         specifier: ^4.1.3
-        version: 4.2.1(@glint/template@1.4.0)(rollup@3.29.4)
+        version: 4.2.1(patch_hash=lbilpvhajy3dr3zio4cbbjqw5y)(@glint/template@1.4.0)(rollup@3.29.4)
       '@glimmer/tracking':
         specifier: ^1.1.2
         version: 1.1.2
@@ -1766,7 +1771,7 @@ packages:
       - supports-color
     dev: true
 
-  /@embroider/addon-dev@4.2.1(@glint/template@1.4.0)(rollup@3.29.4):
+  /@embroider/addon-dev@4.2.1(patch_hash=lbilpvhajy3dr3zio4cbbjqw5y)(@glint/template@1.4.0)(rollup@3.29.4):
     resolution: {integrity: sha512-oMNlVqsqNjtNu7sFGGgo4igOy+Xa7g1I1aXMf7XRbYKWBCiYKX7C7lDKZ65qgsEpRKV3LtbC+XIYiGfHiqhFAg==}
     engines: {node: 12.* || 14.* || >= 16}
     hasBin: true
@@ -1788,6 +1793,7 @@ packages:
       - supports-color
       - utf-8-validate
     dev: true
+    patched: true
 
   /@embroider/addon-shim@1.8.7:
     resolution: {integrity: sha512-JGOQNRj3UR0NdWEg8MsM2eqPLncEwSB1IX+rwntIj22TEKj8biqx7GDgSbeH+ZedijmCh354Hf2c5rthrdzUAw==}

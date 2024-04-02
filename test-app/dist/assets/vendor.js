@@ -52869,6 +52869,7 @@ define("ember-resolver/features", [], function () {
     value: true
   });
   _exports.default = void 0;
+  0; //eaimeta@70e063a35619d71f0,"ember-engines/routes"eaimeta@70e063a35619d71f
   var _default = _exports.default = (0, _routes.default)(function () {
     // route map
   });
